@@ -7,15 +7,15 @@ tailored for large request/response payloads.
 
 ## High-Level Architecture
           
-**Step	 Angular (Frontend)	                            Spring Boot (Backend)**
-
-1      Generate AES key + IV	                        —
-2      Encrypt payload with AES-GCM	                  —
-3	     Encrypt AES key with backend's 
-       RSA public key	                                —
-4	     Send { encryptedKey, iv, authTag, 
-       encryptedPayload }	                            Receive and decrypt AES key with RSA private key
-5	     —	                                            Decrypt payload with AES-GCM
-6	     Backend responds with similarly 
-        encrypted payload	                            Angular decrypts using same flow in reverse    
-
+          Step	 Angular (Frontend)	                            Spring Boot (Backend)
+          
+          1      Generate AES key + IV	                        —
+          2      Encrypt payload with AES-GCM	                  —
+          3	     Encrypt AES key with backend's 
+                 RSA public key	                                —
+          4	     Send { encryptedKey, iv, authTag, 
+                 encryptedPayload }	                            Receive and decrypt AES key with RSA private key
+          5	     —	                                            Decrypt payload with AES-GCM
+          6	     Backend responds with similarly 
+                  encrypted payload	                            Angular decrypts using same flow in reverse    
+          
